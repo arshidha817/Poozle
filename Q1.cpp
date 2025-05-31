@@ -33,7 +33,7 @@ int main(int argc, char* argv[]){
     std::mutex mtx;
     std::vector<std::string> result;
 
-    const int number_of_threads = 4;        //This is hard-coded, only to show how multithreading is implemented; can be changed on demand
+    const int number_of_threads = 4;        //this is just taken as an example; can be changed on requirement
     size_t total_size = vec.size();
     size_t chunk_size = total_size / number_of_threads;         //Dividing the entire word list into chunks
     std::vector<std::thread> threads;       //this vector is to call & manage all threads at once           
