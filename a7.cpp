@@ -64,7 +64,7 @@ void func_multithread (std::vector<int>& vec, int level = 0){      //recursive f
     left_vec.insert(left_vec.begin(), vec.begin(), vec.begin() + middle_index);
     right_vec.insert(right_vec.begin(), vec.begin() + middle_index, vec.end());
 
-    const int max_level = 3;        //just to prevent spawning of too many threads; e.g., if 2 max_level --> 2^0 + 2^1 = 3 max_threads
+    const int max_level = 3;        //just to prevent spawning of too many threads; e.g., if 2 max_level --> 2^0 + 2^1 +2^2 = 7 max_threads
 
     if(level < max_level){
         std::thread t1(func_multithread, std::ref(left_vec), level++);     //spawning threads; O(2^n) i.e. 2 threads per recursion call
