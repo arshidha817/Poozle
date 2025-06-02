@@ -1,3 +1,4 @@
+//one test cases pending
 #include <cmath>
 #include <cstdio>
 #include <vector>
@@ -5,16 +6,13 @@
 #include <algorithm>
 #include <string>
 #include <cstring>
+#include <regex>
 using namespace std;
 
-bool is_number(const string& s) {
-    if (s.empty()) return false;
-    for (char c : s) {
-        if (!isdigit(c) && c != '-') return false;
-    }
-    return true;
+bool is_number(const std::string& s) {
+    std::regex pattern("^-?\\d+(\\.\\d+)?$");
+    return std::regex_match(s, pattern);
 }
-
 
 int main(){
     
@@ -60,10 +58,11 @@ int main(){
                             } catch (...) {
                                 // This block executes if stoi() throws an exception
                             }
+                        index = end + 1;                  
                         }
-                    
+
                     }
-                    index = end + 1;
+                    
                     }
 
                 }
@@ -95,10 +94,11 @@ int main(){
                             } catch (...) {
                                 // This block executes if stoi() throws an exception
                             }
+                        index = end + 1;
                         }
                     
                     }
-                    index = end + 1;
+                    
                     }
                 } 
             }  
